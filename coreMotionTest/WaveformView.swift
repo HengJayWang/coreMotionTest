@@ -33,7 +33,6 @@ class WaveformView: UIView {
     }
     
     
-    
     var signal2Min: CGFloat = 0
     var signal2Max: CGFloat = 0
     var signal2Index: Int = 0

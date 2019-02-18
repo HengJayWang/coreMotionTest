@@ -91,7 +91,6 @@ class ViewController: UIViewController {
                 zLabel.text = String(format: "Z: Max: %5f , min: %5f ",
                                      waveformView.signal3Max, waveformView.signal3Min)
             }
-            
         }
     }
 }
