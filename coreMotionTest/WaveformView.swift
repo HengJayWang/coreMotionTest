@@ -21,6 +21,7 @@ class WaveformView: UIView {
     
     var signal1Min: CGFloat = 0
     var signal1Max: CGFloat = 0
+    var signal1Scale: CGFloat = 1
     var signal1Index: Int = 0
     
     var signal1Data = [CGFloat](repeating: 1.0, count: Parameters.signalArrayLength) {
@@ -35,6 +36,7 @@ class WaveformView: UIView {
     
     var signal2Min: CGFloat = 0
     var signal2Max: CGFloat = 0
+    var signal2Scale: CGFloat = 1
     var signal2Index: Int = 0
     
     var signal2Data = [CGFloat](repeating: 1.0, count: Parameters.signalArrayLength) {
@@ -45,6 +47,7 @@ class WaveformView: UIView {
     
     var signal3Min: CGFloat = 0
     var signal3Max: CGFloat = 0
+    var signal3Scale: CGFloat = 1
     var signal3Index: Int = 0
     
     var signal3Data = [CGFloat](repeating: 1.0, count: Parameters.signalArrayLength) {
@@ -117,17 +120,16 @@ class WaveformView: UIView {
         
         let signal1 = UIBezierPath()
         signal1.lineWidth = Parameters.signalLineWidth
-        let ch1Min = signal1Data.min()!
-        let ch1Scale = (signal1Data.max()! - ch1Min + 0.01)
-        signal1Min = ch1Min
-        signal1Max = ch1Scale + ch1Min - 1
+        signal1Min = signal1Data.min()!
+        signal1Max = signal1Data.max()!
+        signal1Scale = (signal1Max == signal1Min) ? 1 : (signal1Max - signal1Min)
         
         signal1.move(to: CGPoint(x: origin.x,
-                                 y: origin.y - height * 0.27 * (signal1Data[0] - ch1Min) / ch1Scale))
+                                 y: origin.y - height * 0.27 * (signal1Data[0] - signal1Min) / signal1Scale))
         
         for i in 1...signal1Data.count-1 {
             signal1.addLine(to: CGPoint(x: origin.x + stepX * CGFloat(i),
-                                        y: origin.y - height * 0.27 * (signal1Data[i] - ch1Min) / ch1Scale))
+                                        y: origin.y - height * 0.27 * (signal1Data[i] - signal1Min) / signal1Scale))
         }
         UIColor.red.setStroke()
         signal1.stroke()
@@ -136,17 +138,16 @@ class WaveformView: UIView {
         let origin2 = CGPoint(x: width * (1 - graphWidth) / 2, y: height * 0.63 )
         let signal2 = UIBezierPath()
         signal2.lineWidth = Parameters.signalLineWidth
-        let ch2Min = signal2Data.min()!
-        let ch2Scale = (signal2Data.max()! - ch2Min + 0.01)
-        signal2Min = ch2Min
-        signal2Max = ch2Scale + ch2Min - 1
+        signal2Min = signal2Data.min()!
+        signal2Max = signal2Data.max()!
+        signal2Scale = (signal2Max == signal2Min) ? 1 : (signal2Max - signal2Min)
         
         signal2.move(to: CGPoint(x: origin2.x,
-                                 y: origin2.y - height * 0.27 * (signal2Data[0] - ch2Min) / ch2Scale))
+                                 y: origin2.y - height * 0.27 * (signal2Data[0] - signal2Min) / signal2Scale))
         
         for i in 1...signal2Data.count-1 {
             signal2.addLine(to: CGPoint(x: origin2.x + stepX * CGFloat(i),
-                                        y: origin2.y - height * 0.27 * (signal2Data[i] - ch2Min) / ch2Scale))
+                                        y: origin2.y - height * 0.27 * (signal2Data[i] - signal2Min) / signal2Scale))
         }
         UIColor.green.setStroke()
         signal2.stroke()
@@ -155,37 +156,26 @@ class WaveformView: UIView {
         let origin3 = CGPoint(x: width * (1 - graphWidth) / 2, y: height * 0.96 )
         let signal3 = UIBezierPath()
         signal3.lineWidth = Parameters.signalLineWidth
-        let ch3Min = signal3Data.min()!
-        let ch3Scale = (signal3Data.max()! - ch3Min + 0.01)
-        signal3Min = ch3Min
-        signal3Max = ch3Scale + ch3Min - 1
+        signal3Min = signal3Data.min()!
+        signal3Max = signal3Data.max()!
+        signal3Scale = (signal3Max == signal3Min) ? 1 : (signal3Max - signal3Min)
         
         signal3.move(to: CGPoint(x: origin3.x,
-                                 y: origin3.y - height * 0.27 * (signal3Data[0] - ch3Min) / ch3Scale))
+                                 y: origin3.y - height * 0.27 * (signal3Data[0] - signal3Min) / signal3Scale))
         
         for i in 1...signal3Data.count-1 {
             signal3.addLine(to: CGPoint(x: origin3.x + stepX * CGFloat(i),
-                                        y: origin3.y - height * 0.27 * (signal3Data[i] - ch3Min) / ch3Scale))
+                                        y: origin3.y - height * 0.27 * (signal3Data[i] - signal3Min) / signal3Scale))
         }
         UIColor.cyan.setStroke()
         signal3.stroke()
         
     }
     
-//    func pushSignal1 (newValue: CGFloat) {
-//        signal1Data.append(newValue)
-//        signal1Data.removeFirst()
-//    }
-    
     func pushSignal1BySliding (newValue: CGFloat) {
         signal1Data[signal1Index] = newValue
         signal1Index = (signal1Index == signal1Data.count - 1) ? 0 : (signal1Index + 1)
     }
-    
-//    func pushSignal2 (newValue: CGFloat) {
-//        signal2Data.append(newValue)
-//        signal2Data.removeFirst()
-//    }
     
     func pushSignal2BySliding (newValue: CGFloat) {
         signal2Data[signal2Index] = newValue
