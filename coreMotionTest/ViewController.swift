@@ -56,43 +56,19 @@ class ViewController: UIViewController {
             recordBtn.setTitle("Start!", for: .normal)
             recordBtn.backgroundColor = green
             motionManager.stopDeviceMotionUpdates()
-//            motionManager.stopAccelerometerUpdates()
             timer.invalidate()
         } else {
             isRecord.toggle()
             recordBtn.setTitle("Recording ...", for: .normal)
             recordBtn.backgroundColor = red
             motionManager.startDeviceMotionUpdates()
-//            motionManager.startAccelerometerUpdates()
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
         }
     }
     
     @objc func update() {
-//        if let accelerometerData = motionManager.accelerometerData {
-////            print("accelerometerData: ")
-////            print(accelerometerData.acceleration)
-//
-//            waveformView.pushSignal1BySliding(newValue: CGFloat(accelerometerData.acceleration.x))
-//            waveformView.pushSignal2BySliding(newValue: CGFloat(accelerometerData.acceleration.y))
-//            waveformView.pushSignal3BySliding(newValue: CGFloat(accelerometerData.acceleration.z))
-//
-//            if (waveformView.signal1Index % 100 == 0) {
-//                xLabel.text = String(format: "X: Max: %5f , min: %5f ",
-//                                     waveformView.signal1Max, waveformView.signal1Min)
-//                yLabel.text = String(format: "Y: Max: %5f , min: %5f ",
-//                                     waveformView.signal2Max, waveformView.signal2Min)
-//                zLabel.text = String(format: "Z: Max: %5f , min: %5f ",
-//                                     waveformView.signal3Max, waveformView.signal3Min)
-//            }
-//        }
-//        if let gyroData = motionManager.gyroData {
-//            print("gyroData: ")
-//            print(gyroData.rotationRate)
-//        }
+
         if let deviceMotion = motionManager.deviceMotion {
-            print("userAcceleration in deviceMotion:")
-            print(deviceMotion.userAcceleration)
 
             waveformView.pushSignal1BySliding(newValue: CGFloat(deviceMotion.userAcceleration.x))
             waveformView.pushSignal2BySliding(newValue: CGFloat(deviceMotion.userAcceleration.y))

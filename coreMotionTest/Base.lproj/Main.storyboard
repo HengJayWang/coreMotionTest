@@ -32,7 +32,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="5DH-5G-LZT"/>
-                                    <constraint firstAttribute="width" constant="270" id="J5Y-ai-zO2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="J5Y-ai-zO2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                 <state key="normal" title="Start!">
@@ -48,7 +48,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Uy-WN-FrK">
                                         <rect key="frame" x="8" y="2" width="400" height="17"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="400" id="UXa-mD-TiD"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="UXa-mD-TiD"/>
                                             <constraint firstAttribute="height" constant="17" id="jM3-xa-xqu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -58,7 +58,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Y:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wz-TH-IiI">
                                         <rect key="frame" x="8" y="201" width="400" height="17"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="400" id="dgR-Ye-5Kd"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="dgR-Ye-5Kd"/>
                                             <constraint firstAttribute="height" constant="17" id="s65-2g-4tb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -66,10 +66,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Z:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-Mi-cMy">
-                                        <rect key="frame" x="8" y="402" width="400" height="17"/>
+                                        <rect key="frame" x="8" y="403" width="400" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="7L0-Hf-rcZ"/>
-                                            <constraint firstAttribute="width" constant="400" id="fgy-l3-dVU"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="fgy-l3-dVU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.51663455110000001" green="0.84108890839999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -78,12 +78,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Wz-TH-IiI" secondAttribute="trailing" constant="20" symbolic="YES" id="29k-14-TiV"/>
                                     <constraint firstItem="0Uy-WN-FrK" firstAttribute="top" secondItem="nb6-dW-3hX" secondAttribute="top" constant="2" id="8Hd-cC-3LJ"/>
                                     <constraint firstItem="5Wz-TH-IiI" firstAttribute="leading" secondItem="nb6-dW-3hX" secondAttribute="leading" constant="8" id="BAm-4V-Dk9"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0Uy-WN-FrK" secondAttribute="trailing" constant="20" symbolic="YES" id="ZbP-xH-rD6"/>
                                     <constraint firstItem="0Uy-WN-FrK" firstAttribute="leading" secondItem="nb6-dW-3hX" secondAttribute="leading" constant="8" id="dWC-2C-Kjc"/>
                                     <constraint firstItem="fJp-Mi-cMy" firstAttribute="leading" secondItem="nb6-dW-3hX" secondAttribute="leading" constant="8" id="gD1-Db-04d"/>
-                                    <constraint firstItem="fJp-Mi-cMy" firstAttribute="top" secondItem="5Wz-TH-IiI" secondAttribute="bottom" constant="184" id="ncD-ne-NZV"/>
+                                    <constraint firstItem="fJp-Mi-cMy" firstAttribute="top" secondItem="5Wz-TH-IiI" secondAttribute="bottom" constant="185" id="ncD-ne-NZV"/>
                                     <constraint firstItem="5Wz-TH-IiI" firstAttribute="top" secondItem="0Uy-WN-FrK" secondAttribute="bottom" constant="182" id="nui-Xg-xbq"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fJp-Mi-cMy" secondAttribute="trailing" constant="20" symbolic="YES" id="wss-hC-5dG"/>
                                 </constraints>
                             </view>
                         </subviews>
