@@ -15,7 +15,7 @@ class WaveformView: UIView {
         static let backgroundOutlineWidth: CGFloat = 8.0
         static let middleSeperateLineWidth: CGFloat = 2.5
         static let signalLineWidth: CGFloat = 2.0
-        static let signalArrayLength = 1000
+        static let signalArrayLength = 2000
         static let indexToUpdateView = signalArrayLength / 10
     }
     
@@ -24,12 +24,9 @@ class WaveformView: UIView {
     var signal1Scale: CGFloat = 1
     var signal1Index: Int = 0
     
-    var signal1Data = [CGFloat](repeating: 1.0, count: Parameters.signalArrayLength) {
+    var signal1Data = [CGFloat](repeating: 0.0, count: Parameters.signalArrayLength) {
         didSet {
-            if (signal1Index + 1) % Parameters.indexToUpdateView == 0 {
-                setNeedsDisplay()
-                print("signal1Index: \(signal1Index), signal1Max: \(signal1Max), signal1Min: \(signal1Min)")
-            }
+            if (signal1Index + 1) % Parameters.indexToUpdateView == 0 { setNeedsDisplay() }
         }
     }
     
@@ -39,7 +36,7 @@ class WaveformView: UIView {
     var signal2Scale: CGFloat = 1
     var signal2Index: Int = 0
     
-    var signal2Data = [CGFloat](repeating: 1.0, count: Parameters.signalArrayLength) {
+    var signal2Data = [CGFloat](repeating: 0.0, count: Parameters.signalArrayLength) {
         didSet {
             if (signal2Index + 1) % Parameters.indexToUpdateView == 0 { setNeedsDisplay() }
         }
@@ -50,7 +47,7 @@ class WaveformView: UIView {
     var signal3Scale: CGFloat = 1
     var signal3Index: Int = 0
     
-    var signal3Data = [CGFloat](repeating: 1.0, count: Parameters.signalArrayLength) {
+    var signal3Data = [CGFloat](repeating: 0.0, count: Parameters.signalArrayLength) {
         didSet {
             if (signal3Index + 1) % Parameters.indexToUpdateView == 0 { setNeedsDisplay() }
         }
